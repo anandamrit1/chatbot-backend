@@ -1,10 +1,7 @@
 const util = require('./util');
 
 const handleSampleResponse = (req) => {
-
-    console.log(req.body);
-
-    return util.formatResponseForDialogflow(
+    return util.formatResponseForDialogFlow(
         [
             'This is a sample response from webhook.',
             'Another sample response.'
@@ -15,9 +12,27 @@ const handleSampleResponse = (req) => {
     );
 };
 
-const handleTodaysWeatherResponse = (msg) => {
-    return util.formatResponseForDialogflow(
+const handleWeatherResponse = (msg) => {
+    return util.formatResponseForDialogFlow(
         [msg],
+        '',
+        '',
+        ''
+    );
+};
+
+const handleEventResponse = (events) => {
+    return util.formatResponseForDialogFlow(
+        events,
+        '',
+        '',
+        ''
+    );
+};
+
+const handleErrorResponse = () => {
+    return util.formatResponseForDialogFlow(
+        ['Something went wrong. Please try again.'],
         '',
         '',
         ''
@@ -26,5 +41,7 @@ const handleTodaysWeatherResponse = (msg) => {
 
 module.exports = {
     handleSampleResponse,
-    handleTodaysWeatherResponse
+    handleWeatherResponse,
+    handleEventResponse,
+    handleErrorResponse
 };

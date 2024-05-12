@@ -1,5 +1,4 @@
-const formatResponseForDialogflow = (texts, sessionInfo, targetFlow, targetPage) => {
-
+const formatResponseForDialogFlow = (texts, sessionInfo, targetFlow, targetPage) => {
     messages = []
 
     texts.forEach(text => {
@@ -36,20 +35,6 @@ const formatResponseForDialogflow = (texts, sessionInfo, targetFlow, targetPage)
     return responseData
 };
 
-const getErrorMessage = () => {
-
-    return formatResponseForDialogflow(
-        [
-            'We are facing a technical issue.',
-            'Please try after sometimes or contact the XYZ restaurant.'
-        ],
-        '',
-        '',
-        ''
-    );
-};
-
 module.exports = {
-    formatResponseForDialogflow,
-    getErrorMessage
+    formatResponseForDialogFlow
 };

@@ -1,4 +1,5 @@
 const express = require('express');
+const CONTROLLER = require('../routes/dialogflow_route');
 
 const webApp = express();
 
@@ -15,6 +16,7 @@ const dialogflowRoute = require('../routes/dialogflow_route');
 webApp.use(homeRoute.router);
 webApp.use(dialogflowRoute.router);
 
-webApp.listen(PORT, () => {
+webApp.listen(PORT, async () => {
+    await CONTROLLER.getWeatherMsg()
     console.log(`Server is up and running at ${PORT}`);
 });
